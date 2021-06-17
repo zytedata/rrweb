@@ -322,6 +322,7 @@ export function needCastInSyncMode(event: eventWithTime): boolean {
       return false;
     case EventType.FullSnapshot:
     case EventType.Meta:
+    case EventType.Plugin:
       return true;
     default:
       break;

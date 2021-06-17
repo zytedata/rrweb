@@ -77,9 +77,9 @@ const baseConfigs = [
 ];
 
 let configs = [];
+const basePlugins = [resolve({ browser: true }), typescript()];
 
 for (const c of baseConfigs) {
-  const basePlugins = [resolve({ browser: true }), typescript()];
   const plugins = basePlugins.concat(
     postcss({
       extract: false,
@@ -139,6 +139,56 @@ for (const c of baseConfigs) {
         format: 'esm',
         dir: 'es/rrweb',
         plugins: [renameNodeModules('ext')],
+      },
+    ],
+  });
+}
+
+const pluginConfigs = [
+  {
+    input: './src/plugins/record/console/index.ts',
+    name: 'recordConsole',
+  },
+  {
+    input: './src/plugins/replay/console/index.ts',
+    name: 'replayConsole',
+  },
+];
+for (const c of pluginConfigs) {
+  const basePath = c.input.replace('./src/', '').replace(/\.ts$/, '.js');
+  // browser
+  configs.push({
+    input: c.input,
+    plugins: basePlugins,
+    output: [
+      {
+        name: c.name,
+        format: 'iife',
+        file: pkg.unpkg.replace('rrweb.js', basePath),
+      },
+    ],
+  });
+  // browser + minify;
+  configs.push({
+    input: c.input,
+    plugins: basePlugins.concat(terser()),
+    output: [
+      {
+        name: c.name,
+        format: 'iife',
+        file: toMinPath(pkg.unpkg.replace('rrweb.js', basePath)),
+        sourcemap: true,
+      },
+    ],
+  });
+  // CommonJS
+  configs.push({
+    input: c.input,
+    plugins: basePlugins,
+    output: [
+      {
+        format: 'cjs',
+        file: pkg.main.replace('rrweb-all.js', basePath),
       },
     ],
   });
