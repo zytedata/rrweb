@@ -16,7 +16,7 @@ exports[`RRDocument for nodejs environment buildFromDom should create an RRDocum
       -13 LINK rel=\\"stylesheet\\" href=\\"somelink\\" 
       -14 RRText text=\\"\\\\n    \\"
       -15 STYLE 
-        -16 RRText text=\\"\\\\n      h1 {\\\\n        color: 'black';\\\\n      }\\\\n      .blocks {\\\\n        padding: 0;\\\\n      }\\\\n      .blocks1 {\\\\n        margin: 0;\\\\n      }\\\\n      #block1 {\\\\n        width: 100px;\\\\n        height: 200px;\\\\n      }\\\\n    \\"
+        -16 RRText text=\\"\\\\n      h1 {\\\\n        color: 'black';\\\\n      }\\\\n      .blocks {\\\\n        padding: 0;\\\\n      }\\\\n      .blocks1 {\\\\n        margin: 0;\\\\n      }\\\\n      #block1 {\\\\n        width: 100px;\\\\n        height: 200px;\\\\n      }\\\\n      @import url(\\\\\\"main.css\\\\\\");\\\\n    \\"
       -17 RRText text=\\"\\\\n  \\"
     -18 RRText text=\\"\\\\n  \\"
     -19 BODY 
