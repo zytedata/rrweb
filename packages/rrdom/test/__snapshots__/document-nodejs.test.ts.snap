@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RRDocument buildFromDom should create an RRDocument from a html document 1`] = `
+exports[`RRDocument for nodejs environment buildFromDom should create an RRDocument from a html document 1`] = `
 "-1 RRDocument
   -2 RRDocumentType
   -3 HTML lang=\\"en\\" 

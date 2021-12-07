@@ -1,8 +1,7 @@
 import { INode, NodeType, serializedNodeWithId } from 'rrweb-snapshot';
-// @ts-ignore
-import nwsapi, { NWSAPI } from 'nwsapi';
-import * as nwsapiFactory from 'nwsapi';
+import { NWSAPI } from 'nwsapi';
 import { parseCSSText, camelize, toCSSText } from './style';
+const nwsapi = require('nwsapi');
 const cssom = require('cssom');
 
 export abstract class RRNode {
@@ -80,7 +79,7 @@ export class RRDocument extends RRNode {
   private _nwsapi: NWSAPI;
   get nwsapi() {
     if (!this._nwsapi) {
-      this._nwsapi = (nwsapi || nwsapiFactory)({
+      this._nwsapi = nwsapi({
         document: (this as unknown) as Document,
         DOMException: (null as unknown) as new (
           message?: string,

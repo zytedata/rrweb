@@ -3,10 +3,10 @@
  */
 import * as fs from 'fs';
 import * as path from 'path';
-import { RRDocument, RRElement, RRNode } from '../src/document';
+import { RRDocument, RRElement, RRNode } from '../src/document-nodejs';
 import { printRRDom } from './util';
 
-describe('RRDocument', () => {
+describe('RRDocument for nodejs environment', () => {
   describe('buildFromDom', () => {
     it('should create an RRDocument from a html document', () => {
       // setup document

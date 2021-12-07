@@ -23,9 +23,14 @@ const baseConfigs = [
     path: pkg.name,
   },
   {
-    input: './src/document.ts',
+    input: './src/document-nodejs.ts',
     name: 'RRDocument',
-    path: 'document',
+    path: 'document-nodejs',
+  },
+  {
+    input: './src/document-browser.ts',
+    name: 'RRDocument',
+    path: 'document-browser',
   },
 ];
 
